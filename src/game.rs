@@ -4,8 +4,8 @@ use crate::graphics::GraphicsManager;
 use crate::scene::Scene;
 
 pub struct Game {
-    graphics_manager: Option<GraphicsManager>,
-    current_scene: Option<Scene>,
+    pub graphics_manager: Option<GraphicsManager>,
+    pub current_scene: Option<Scene>,
     background_texture: Option<Texture2D>
 }
 

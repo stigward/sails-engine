@@ -1,5 +1,23 @@
-pub struct Position(i32, i32);
+use raylib::prelude::*;
+
+pub struct Position {
+    pub x: i32, 
+    pub y: i32
+}
 
 pub struct GameObject {
-    position: Position
+    pub position: Position,
+    pub texture: Texture2D,
+    pub rigid_body: bool
 }
+
+impl GameObject {
+    pub fn new(position: Position, texture: Texture2D, rigid_body: bool) -> Self {
+        GameObject {
+            position,
+            texture,
+            rigid_body
+        }
+    }
+}
+

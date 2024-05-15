@@ -8,10 +8,11 @@ pub struct Scene {
 }
 
 impl Scene {
-    pub fn new(tilemap: Texture2D) -> Self {
+    pub fn new(tilemap_path: &str, gm: &mut GraphicsManager) -> Self {
+        let texture = gm.load_texture(tilemap_path);
         Scene {
             game_objects: Vec::new(),
-            tilemap
+            tilemap: texture
         }
     }
 

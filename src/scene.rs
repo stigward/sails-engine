@@ -3,6 +3,10 @@ use crate::game_object::{GameObject, Position};
 use crate::graphics::GraphicsManager;
 
 pub struct Scene {
+    // TODO - we can abstract this to an 
+    // interface so that it holds both 
+    // Actors and Game Objects
+    
     game_objects: Vec<GameObject>,
     tilemap: Texture2D 
 }
@@ -24,9 +28,15 @@ impl Scene {
         }
     }
 
-    pub fn add_game_object(&mut self, texture_path: &str, rigid_body: bool, gm: &mut GraphicsManager, position: Position) {
+    pub fn create_game_object(&mut self, texture_path: &str, rigid_body: bool, gm: &mut GraphicsManager, position: Position) {
         let object = GameObject::new(position, gm.load_texture(texture_path), rigid_body);
         self.game_objects.push(object);
     }
+
+    pub fn add_object(&mut self, game_object: GameObject) {
+        self.game_objects.push(game_object);
+    }
+
+
 
 }
